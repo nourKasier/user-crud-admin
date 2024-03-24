@@ -22,8 +22,11 @@ class UsersDataTable extends DataTable
                 return $editButton . ' ' . $deleteButton;
             })
             ->rawColumns(['custom_column'])
-            ->editColumn('created_at', function ($user) {
+            ->editColumn('subscription_end_date', function ($user) {
                 return $user->created_at->format('Y-m-d H:i:s');
+            })
+            ->editColumn('created_at', function ($user) {
+                return $user->updated_at->format('Y-m-d H:i:s');
             })
             ->editColumn('updated_at', function ($user) {
                 return $user->updated_at->format('Y-m-d H:i:s');
